@@ -5,7 +5,7 @@ import { GraphQLModule, Query, Resolver } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { PostModule } from './post/backend/post.module';
 import { UserModule } from './user/backend/user.module';
-
+import { UserFrontendModule } from './user/frontend/user-frontend.module';
 
 @Resolver()
 export class TempResolver {
@@ -24,6 +24,7 @@ export class TempResolver {
     }),
     PostModule,
     UserModule,
+    UserFrontendModule,
   ],
   controllers: [AppController],
   providers: [AppService,TempResolver],
