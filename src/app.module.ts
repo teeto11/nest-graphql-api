@@ -6,6 +6,7 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { PostModule } from './post/backend/post.module';
 import { UserModule } from './user/backend/user.module';
 import { UserFrontendModule } from './user/frontend/user-frontend.module';
+import { PostFrontendModule } from './post/frontend/post-frontend.module';
 
 @Resolver()
 export class TempResolver {
@@ -25,6 +26,7 @@ export class TempResolver {
     PostModule,
     UserModule,
     UserFrontendModule,
+    PostFrontendModule
   ],
   controllers: [AppController],
   providers: [AppService,TempResolver],
