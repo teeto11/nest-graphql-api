@@ -7,15 +7,19 @@ const primsa = new PrismaClient({
         { level: 'error', emit: 'event' },
       ],
 })
+primsa.$on('query', async (e) => {
+    console.log(`${e.query}`);
+  })
 
 @Injectable()
 export class PostService {
-    async createPost({title,content,userId}:{title:string,content:string,userId:number}):Promise<Post>{
+    async createPost({title,content,userId,published}:{title:string,content:string,userId:number,published?:boolean}):Promise<Post>{
         return primsa.post.create({
             data:{
                 title,
                 content,
-                userId
+                userId,
+                published
             }
         })
     }
