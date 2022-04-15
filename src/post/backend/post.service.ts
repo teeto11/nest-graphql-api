@@ -23,4 +23,11 @@ export class PostService {
             }
         })
     }
+    async getUserPosts(userId:number):Promise<Post[]>{
+        return primsa.post.findMany({
+            where:{
+                userId
+            }
+        })
+    }
 }
