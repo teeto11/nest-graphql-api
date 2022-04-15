@@ -24,4 +24,11 @@ export class UserService {
            }
        })
     }
+    async getUser(id:number):Promise<User>{
+        return primsa.user.findFirst({
+            where:{
+                id
+            }
+        })
+    }
 }
