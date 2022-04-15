@@ -2,11 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  email: String!
-  name: String!
-}
-
 type Post {
   id: Int!
   title: String!
@@ -14,16 +9,27 @@ type Post {
   published: Boolean!
 }
 
+type User {
+  email: String!
+  name: String!
+  posts: [Post!]!
+}
+
 type Query {
   sayHello: String!
+  user(input: SingleUserFrontendInput!): User!
+}
+
+input SingleUserFrontendInput {
+  id: Int!
 }
 
 type Mutation {
-  createUser(input: UserInput!): User!
+  createUser(input: UserFrontendInput!): User!
   createPost(input: PostFrontendInput!): Post!
 }
 
-input UserInput {
+input UserFrontendInput {
   email: String!
   name: String!
 }
